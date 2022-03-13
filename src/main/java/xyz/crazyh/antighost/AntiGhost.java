@@ -21,8 +21,6 @@ import xyz.crazyh.antighost.util.AntiGhostBlock;
 import org.lwjgl.input.Keyboard;
 import xyz.crazyh.antighost.util.AntiGhostInventory;
 
-import java.io.File;
-
 @Mod(   modid = AntiGhost.MODID,
         name = AntiGhost.NAME,
         version = AntiGhost.VERSION,
@@ -31,12 +29,13 @@ import java.io.File;
 public class AntiGhost {
     public static final String MODID = "antighost";
     public static final String NAME = "Anti Ghost";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.0";
     public static final String GUIFACTORY = "xyz.crazyh.antighost.config.AntiGhostConfigFactory";
 
     static KeyBinding clearGB;
     static KeyBinding refreshInv;
     private int tickCounterGB = 0;
+    private int tickCounterRI = 0;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -68,13 +67,25 @@ public class AntiGhost {
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
-            tickCounterGB++;
 
-            if (tickCounterGB >= AntiGhostConfig.autoClearGhostBlockInterval && AntiGhostConfig.autoClearGhostBlockFlag) {
-                tickCounterGB = 0;
+            if (AntiGhostConfig.autoClearGhostBlockFlag) {
+                tickCounterGB++;
+                if (tickCounterGB >= AntiGhostConfig.autoClearGhostBlockInterval) {
+                    tickCounterGB = 0;
 
-                EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
-                AntiGhostBlock.clearGhostBlock(playerSP);
+                    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
+                    AntiGhostBlock.clearGhostBlock(playerSP);
+                }
+            }
+
+            if (AntiGhostConfig.autoRefreshInventoryFlag) {
+                tickCounterRI++;
+                if (tickCounterRI >= AntiGhostConfig.autoRefreshInventoryInterval) {
+                    tickCounterRI = 0;
+
+                    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
+                    AntiGhostInventory.refreshInv(playerSP);
+                }
             }
         }
     }

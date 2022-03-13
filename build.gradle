@@ -20,7 +20,7 @@ repositories {
     maven { url = "https://repo.spongepowered.org/maven" }
 }
 
-version = '1.0.0'
+version = '1.1.0'
 group = 'xyz.crazyh.antighost' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'antighost'
 

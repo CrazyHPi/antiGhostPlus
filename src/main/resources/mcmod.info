@@ -2,10 +2,10 @@
 {
   "modid": "antighost",
   "name": "Anti Ghost",
-  "description": "Clear ghost block",
+  "description": "Automatically clear ghost block and refresh inventory to clear ghost item for you",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/CrazyHPi/antiGhostPlus",
   "updateUrl": "",
   "authorList": ["CrazyH"],
   "credits": "Giselbaer for his origin anti ghost mod",

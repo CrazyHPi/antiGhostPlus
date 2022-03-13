@@ -9,7 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.client.CPacketClickWindow;
 
 public class AntiGhostInventory {
-    //back port from Fallen_Breath's Tweakermore
+   /* back port from Fallen_Breath's Tweakermore
+    check: https://github.com/Fallen-Breath/tweakermore/blob/1.15.2/src/main/java/me/fallenbreath/tweakermore/impl/refreshInventory/InventoryRefresher.java
+    */
     public static void refreshInv(EntityPlayerSP playerSP) {
         Minecraft minecraft = Minecraft.getMinecraft();
         NetHandlerPlayClient client = minecraft.getConnection();
