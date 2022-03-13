@@ -1,0 +1,16 @@
+[
+{
+  "modid": "antighost",
+  "name": "Anti Ghost",
+  "description": "Clear ghost block",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["CrazyH"],
+  "credits": "Giselbaer for his origin anti ghost mod",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
